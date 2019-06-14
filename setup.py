@@ -9,7 +9,7 @@ setup(
     description='Commandline tool to manage MS SQL user accounts', 
     long_description=readme, 
     author = 'Norman Shipman', 
-    author_email = 'nshipman@plaid.com', 
+    author_email = 'norman@nshipman.io', 
     packages=find_packages('src'), 
     package_dir={'': 'src'}, 
     install_requires=['cython', 'pymssql'],
