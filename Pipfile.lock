@@ -1,0 +1,25 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "dfb5c61a49745492833cdfb8b463fd453789482920bd0c0b0196677f8af4c850"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.7"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "mssql-account-manager": {
+            "editable": true,
+            "path": "."
+        }
+    },
+    "develop": {}
+}
