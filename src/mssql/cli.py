@@ -13,25 +13,34 @@ def create_parser():
     return parser  
 
 def main():
+    import sys
     from mssql import driver, users
     args = create_parser().parse_args()
 
     if args.user: 
         admin_username = args.user
     elif os.getenv("MSSQL_USER_NAME"):
-        admin_username = os.getenv("MSSQL_USER_NAME")
+        admin_username = os.getenv("MSSQL_USER_NAME") 
+    else:
+        print("Error: Administrator user name not provided.")
+        sys.exit(1)
     
     if args.password: 
         admin_password = args.password 
     elif os.getenv("MSSQL_PASSWORD"):
         admin_password = os.getenv("MSSQL_PASSWORD")
+    else: 
+        print("Error: Administrator password not provided.")
+        sys.exit(1) 
     
+    print(admin_username + " " + admin_password)
     if args.operation.lower() == 'reset':
         users.reset_password(driver.connect(args.hostname,admin_username,admin_password,args.database,args.port)
         ,str(input("Enter the user account to reset: ")))
         
     elif args.operation.lower() == 'disable':
-        pass    
+        users.disable_user(driver.connect(args.hostname,admin_username,admin_password,args.database,args.port)
+        ,str(input("Enter the user account to disable: ")))  
     
     
       
